@@ -35,6 +35,27 @@ test = [(2, 5), (5, 6), (1, 6)]
 
 main(test)
 
+'''
+[
+  {
+    "id": 6,
+    "sub": [
+      {
+        "id": 5,
+        "sub": [
+          {
+            "id": 2
+          }
+        ]
+      },
+      {
+        "id": 1
+      }
+    ]
+  }
+]
+'''
+
 class Node:
     def __init__(self, value: int, left, right):
         self.value = value
