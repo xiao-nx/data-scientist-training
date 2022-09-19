@@ -15,16 +15,14 @@ def gen_dict(root: int) -> Dict[Any, Any]:
     return ret
 
 def main(rel: List[Tuple[int, int]]):
-    root: Set[int] = set()
     for employ, manager in rel:
-        root.add(manager)
-        root.discard(employ)
         if employ not in ids:
             ids[employ] = []
         if manager not in ids:
             ids[manager] = []
         if employ not in ids[manager]:
             ids[manager].append(employ)
+    root: Set[int] = set(i[1] for i in rel) - set(i[0] for i in rel)
     ret: List[Dict[Any, Any]] = []
     for id in root:
         ret.append(gen_dict(id))
